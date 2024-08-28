@@ -7,6 +7,6 @@ export default function UserHeader() {
                     <li><Link href={"/urunler"}>ürünler</Link></li>
                     <li>iletişim</li>
                 </ul>
-            </header>
+            </header>  
     )
 }
