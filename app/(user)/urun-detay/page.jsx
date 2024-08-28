@@ -5,5 +5,5 @@ export default function UrunDetayPage() {
                 ürün detay
             </p>
         </>
-    )
+    ) 
 }
