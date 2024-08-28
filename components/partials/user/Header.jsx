@@ -1,6 +1,5 @@
-import Link from "next/link";
-
-export default (UserHeader) => {
+import Link from "next/link"
+export default function UserHeader() {
     return (
         <header className="p-2">
                 <ul className="flex justify-evenly items-center">
