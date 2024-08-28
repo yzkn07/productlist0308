@@ -1,4 +1,4 @@
-export default (UrunDetayPage) => {
+export default function UrunDetayPage() {
     return(
         <>
             <p>

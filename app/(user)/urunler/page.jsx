@@ -1,6 +1,6 @@
 import ProductCard from "@/components/partials/user/ProductCard";
 
-export default async (ProductsPage) => {
+export default async  function ProductsPage() {
     const { products: Products } = await fetch("https://dummyjson.com/products").then(r => r.json())
 
     return (
