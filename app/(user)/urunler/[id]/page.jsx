@@ -7,10 +7,11 @@ export default async function ProductDetailPage({ params }) {
     if (!request.ok) {
         return notFound()
     }
+    const alisVerisDurumu = true
     const product = await request.json()
     return (
         <>
-            <ProductCard product={product}/>
+            <ProductCard product={product} alisVeris={alisVerisDurumu}/>
         </>
     )
 }
