@@ -27,7 +27,7 @@ export default async  function ProductsPage({ searchParams }) {
                     {/* bütün ürünleri listeliyor  */}
                 
                     {/* searchParams varsa productName geliyor, p.title ile eşleşenleri listele */}
-                {searchParams.productName ? Products.filter(p => p.title === searchParams.productName).map(p => (
+                {searchParams.productName ? Products.filter(p => p.title.toLocaleLowerCase().includes(searchParams.productName.toLocaleLowerCase())).map(p => (
                     <ProductCard key={p.id} product={p}/>
                 )) : Products.map(p => (
                     <ProductCard key={p.id} product={p}/>
