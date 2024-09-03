@@ -7,6 +7,7 @@ export async function ProductFilterAction(formData) {
     // const productCategory = formData.get("productCategory")
     const minPrice = formData.get("minPrice")
     const maxPrice = formData.get("maxPrice")
+    const categoryName = formData.get("categoryName")
     
     
     const query = [];
@@ -21,6 +22,9 @@ export async function ProductFilterAction(formData) {
     }
     if(maxPrice){
         query.push(`maxPrice=${maxPrice}`)
+    }
+    if(categoryName !== "hepsi"){
+        query.push(`categoryName=${categoryName}`)
     }
     
     return redirect(`/urunler?${query.join("&")}`)

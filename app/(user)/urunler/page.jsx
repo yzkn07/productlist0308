@@ -16,6 +16,9 @@ export default async  function ProductsPage({ searchParams }) {
     if( searchParams.maxPrice){
         Products = Products.filter(p => p.price <= parseFloat(searchParams.maxPrice))
     }
+    if(searchParams.categoryName){
+        Products = Products.filter(p => p.category == searchParams.categoryName)
+    }
     
 
     return (
@@ -35,8 +38,9 @@ export default async  function ProductsPage({ searchParams }) {
 
                 <select name="categoryName" id=""
                 className="border-zinc-300 focus:border-zinc-700 border-2 py-1 px-2 rounded-md mb-2">
-                    {categories.map((c,i) => (
-                        <option value="" key={i}>{c.name}</option>
+                    <option value="hepsi">hepsi</option>
+                    {categories.map((category,i) => (
+                        <option value={category.slug} key={i}>{category.name}</option>
                     ))}
                 </select>
                

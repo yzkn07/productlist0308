@@ -18,6 +18,7 @@ export default function ProductCard({ product, alisVeris }) {
             <div className="bg-slate-100/30 rounded-md py-2 px-4 text-white font-light">
                 <span className="me-2">$</span>{product.price}
             </div>
+            <div><p>{product.category}</p></div>
             {alisVeris && <SepeteEkleButton/>}
         </div>
     ) 
