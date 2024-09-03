@@ -3,12 +3,13 @@ import ProductCard from "@/components/partials/user/ProductCard";
 
 export default async  function ProductsPage({ searchParams }) {
     let { products: Products } = await fetch("https://dummyjson.com/products").then(r => r.json())
+    
     if( searchParams.productName){
         Products = Products.filter(p => 
             p.title.toLocaleLowerCase().includes(searchParams.productName.toLocaleLowerCase()))
     } 
     if( searchParams.minPrice){
-        Products = Products.filter(p => p.price >= searchParams.minPrice)
+        Products = Products.filter(p => p.price >= parseFloat(searchParams.minPrice))
     }
     
 
