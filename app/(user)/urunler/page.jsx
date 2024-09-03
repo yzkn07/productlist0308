@@ -11,6 +11,9 @@ export default async  function ProductsPage({ searchParams }) {
     if( searchParams.minPrice){
         Products = Products.filter(p => p.price >= parseFloat(searchParams.minPrice))
     }
+    if( searchParams.maxPrice){
+        Products = Products.filter(p => p.price <= parseFloat(searchParams.maxPrice))
+    }
     
 
     return (
@@ -23,6 +26,9 @@ export default async  function ProductsPage({ searchParams }) {
                 className="border-zinc-300 focus:border-zinc-700 border-2 py-1 px-2 rounded-md mb-2"/> */}
 
                 <input type="number" name="minPrice" id="" placeholder="en düşük fiyat gir"
+                className="border-zinc-300 focus:border-zinc-700 border-2 py-1 px-2 rounded-md mb-2"/>
+                
+                <input type="number" name="maxPrice" id="" placeholder="en yüksek fiyat gir"
                 className="border-zinc-300 focus:border-zinc-700 border-2 py-1 px-2 rounded-md mb-2"/>
                
                 <button className="bg-gray-400 py-1 px-4 rounded-md text-white text-lg">ara</button>
