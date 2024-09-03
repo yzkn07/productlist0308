@@ -2,7 +2,9 @@ import { ProductFilterAction } from "@/actions/searchAction";
 import ProductCard from "@/components/partials/user/ProductCard";
 
 export default async  function ProductsPage({ searchParams }) {
-    let { products: Products } = await fetch("https://dummyjson.com/products").then(r => r.json())
+    const categories = await fetch("https://dummyjson.com/products/categories").then(c => c.json())
+    let { products: Products } = await fetch("https://dummyjson.com/products?limit=194").then(r => r.json())
+    console.log();
     
     if( searchParams.productName){
         Products = Products.filter(p => 
@@ -30,6 +32,13 @@ export default async  function ProductsPage({ searchParams }) {
                 
                 <input type="number" name="maxPrice" id="" placeholder="en yüksek fiyat gir"
                 className="border-zinc-300 focus:border-zinc-700 border-2 py-1 px-2 rounded-md mb-2"/>
+
+                <select name="categoryName" id=""
+                className="border-zinc-300 focus:border-zinc-700 border-2 py-1 px-2 rounded-md mb-2">
+                    {categories.map((c,i) => (
+                        <option value="" key={i}>{c.name}</option>
+                    ))}
+                </select>
                
                 <button className="bg-gray-400 py-1 px-4 rounded-md text-white text-lg">ara</button>
             </form>
