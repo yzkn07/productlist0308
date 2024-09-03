@@ -6,7 +6,7 @@ export default async  function ProductsPage({ searchParams }) {
     
     if( searchParams.productName){
         Products = Products.filter(p => 
-            p.title.toLocaleLowerCase().includes(searchParams.productName.toLocaleLowerCase()))
+            p.title.toLocaleLowerCase().startsWith(searchParams.productName.toLocaleLowerCase()))
     } 
     if( searchParams.minPrice){
         Products = Products.filter(p => p.price >= parseFloat(searchParams.minPrice))
