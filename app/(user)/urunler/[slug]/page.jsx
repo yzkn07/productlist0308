@@ -17,7 +17,9 @@ import { createClient } from '@/utils/supabase/server'
 // }
 
 export default async function ProductDetailPage({ params }) {
-    const supabase = createClient()
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  const supabase = createClient(supabaseUrl, supabaseAnonKey);
     const { slug } = params  
 
       const { data: product, error } = await supabase

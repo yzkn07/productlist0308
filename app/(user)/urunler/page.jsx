@@ -2,8 +2,14 @@ import { ProductFilterAction } from "@/actions/searchAction";
 import ProductCard from "@/components/partials/user/ProductCard";
 import { createClient } from '@/utils/supabase/server'
 
+
 export default async  function ProductsPage({ searchParams }) {
-    const supabase = createClient()
+
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+    const supabase = createClient(supabaseUrl, supabaseAnonKey);
+ 
+    
 
     let { data: products } = await supabase.from('products').select(`
         *,
