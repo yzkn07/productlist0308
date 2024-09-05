@@ -56,7 +56,7 @@ export default async  function ProductsPage({ searchParams }) {
                     ))}
                 </select>
                
-                <button className="bg-gray-400 py-1 px-4 rounded-md text-white text-lg">ara</button>
+                <button className="bg-gray-400 py-1 px-5 rounded-md text-white text-lg">ara</button>
             </form>
             
 
