@@ -18,7 +18,7 @@ import { createClient } from '@/utils/supabase/server'
 
 export default async function ProductDetailPage({ params }) {
     const supabase = createClient()
-    const { id } = params  
+    const { slug } = params  
 
       const { data: product, error } = await supabase
       .from('products')
@@ -28,13 +28,12 @@ export default async function ProductDetailPage({ params }) {
           *
         )
       `)
-      .eq('slug', id).single()
+      .eq('slug', slug).single()
     // if (!product.ok) {
     //     return notFound()
     // }
     const alisVerisDurumu = true
     // const product = await request.slug
-    console.log(product, "dddddddddddd");
     if(!product) { return notFound()}
     
     return (
