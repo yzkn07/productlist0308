@@ -1,23 +1,35 @@
 import { ProductFilterAction } from "@/actions/searchAction";
 import ProductCard from "@/components/partials/user/ProductCard";
+import { createClient } from '@/utils/supabase/server'
 
 export default async  function ProductsPage({ searchParams }) {
-    const categories = await fetch("https://dummyjson.com/products/categories").then(c => c.json())
-    let { products: Products } = await fetch("https://dummyjson.com/products?limit=194").then(r => r.json())
-    console.log();
+    const supabase = createClient()
+
+    let { data: products } = await supabase.from('products').select(`
+        *,
+        product_categories (
+          *
+        )
+      `)
+    const {data: categories} = await supabase.from('product_categories').select('name');
+    // console.log(products.map(p => p.product_categories.name));
+    
+    
+    // let { products: Products } = await fetch("https://dummyjson.com/products?limit=194").then(r => r.json())
+    // console.log();
     
     if( searchParams.productName){
-        Products = Products.filter(p => 
-            p.title.toLocaleLowerCase().startsWith(searchParams.productName.toLocaleLowerCase()))
+        products = products.filter(p => 
+            p.title.toLocaleLowerCase().includes(searchParams.productName.toLocaleLowerCase()))
     } 
     if( searchParams.minPrice){
-        Products = Products.filter(p => p.price >= parseFloat(searchParams.minPrice))
+        products = products.filter(p => p.price >= parseFloat(searchParams.minPrice))
     }
     if( searchParams.maxPrice){
-        Products = Products.filter(p => p.price <= parseFloat(searchParams.maxPrice))
+        products = products.filter(p => p.price <= parseFloat(searchParams.maxPrice))
     }
     if(searchParams.categoryName){
-        Products = Products.filter(p => p.category == searchParams.categoryName)
+        products = products.filter(p => p.product_categories.name == searchParams.categoryName)
     }
     
 
@@ -56,15 +68,20 @@ export default async  function ProductsPage({ searchParams }) {
                     {/* bütün ürünleri listeliyor  */}
                 
                     {/* searchParams varsa productName geliyor, p.title ile eşleşenleri listele */}
-                {/* {searchParams.productName ? Products.filter(p => p.title.toLocaleLowerCase().includes(searchParams.productName.toLocaleLowerCase())).map(p => (
+                {/* {searchParams.productName ? products.filter(p => p.title.toLocaleLowerCase().includes(searchParams.productName.toLocaleLowerCase())).map(p => (
                     <ProductCard key={p.id} product={p}/>
-                )) : Products.map(p => (
+                )) : products.map(p => (
                     <ProductCard key={p.id} product={p}/>
                     ))
-                }    */}
-                {Products.map(p => (
-                    <ProductCard key={p.id} product={p}/>)) 
-                    }
+                } */}
+                {products.length < 1 ? (
+                    <div><h1>hiç ürün bulunamadı</h1></div>
+                ) : (
+                    products.map(p => (
+                        <ProductCard key={p.id} product={p}/>)) 
+                        
+                )}
+
             </div>
         </>
     )
