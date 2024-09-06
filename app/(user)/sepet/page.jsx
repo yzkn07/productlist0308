@@ -14,10 +14,10 @@ export default async function BasketPage() {
 
     return(
         <>
-            <h1 className="text-center mx-2 mb-1 p-4 text-2xl font-semibold text-gray-700 sha bg-lime-200 rounded-t-3xl">alışveriş sepetim</h1>
-            <div className="mx-2 mb-8 ">
+            <div className="mx-2 md:mx-auto mb-8 md:w-6/12">
+            <h1 className="text-center mb-1 p-4 text-2xl font-semibold text-gray-700  bg-lime-200 rounded-t-3xl rounded-b-md">alışveriş sepetim</h1>
                 {basketItems.map(e => (
-                <div key={e.id} className="flex flex-col md:flex-row items-center md:items-start bg-gray-100 p-4 rounded-lg shadow-lg   hover:shadow-xl hover:bg-lime-200 mb-2">
+                <div key={e.id} className="flex flex-col items-center p-4 border-slate-300 border rounded-lg shadow-lg   hover:shadow-xl hover:bg-lime-200 mb-2">
                         <div className="flex-shrink-0 mb-4 md:mb-0 md:mr-4">
                         <Image src={e.products.thumbnail} height={100} width={100} alt={e.products.title} className="rounded-lg" priority />
                         </div>
@@ -28,7 +28,7 @@ export default async function BasketPage() {
                         </div>
                 </div>
                 ))}
-                <p className="bg-lime-200 text-center text-xl font-bold text-gray-700 p-4 rounded-b-3xl  shadow-2xl">Sepet Tutarı:  {sepetToplam} ₺</p>
+                <p className="bg-lime-200 text-center text-xl font-bold text-gray-700 p-4 rounded-b-3xl rounded-t-md    shadow-2xl">Sepet Tutarı:  {sepetToplam} ₺</p>
             </div>
         
         </>
