@@ -20,7 +20,7 @@ export default async function HomePage() {
           <div className="bg-white text-lg leading-relaxed border-slate-300 border rounded-2xl shadow-md p-6">
             <p>
               <span className="font-semibold text-sky-600">Search</span> özelliği, filtre özelliği 
-              URL'den gelen sluglar sayesinde sağlandı. Ürün adına, en düşük fiyata, en yüksek fiyata
+              URL{"'"}den gelen sluglar sayesinde sağlandı. Ürün adına, en düşük fiyata, en yüksek fiyata
               ve ürün kategorisine göre filtreleme bu sayede yapılabilmektedir.
             </p>
           </div>
