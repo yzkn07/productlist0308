@@ -5,7 +5,7 @@ export default function UserHeader() {
                 <ul className="flex justify-evenly items-center text-white text-lg font-bold">
                     <li className="bg-slate-500 px-3 py-1 rounded-md"><Link href={"/"}>anasayfa</Link></li>
                     <li className="bg-slate-500 px-3 py-1 rounded-md"><Link href={"/urunler"}>ürünler</Link></li>
-                    <li className="bg-slate-500 px-3 py-1 rounded-md">sepet</li>
+                    <li className="bg-slate-500 px-3 py-1 rounded-md"><Link href={"/sepet"}>sepet</Link></li>
                 </ul>
             </header>  
     )
