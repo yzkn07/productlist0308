@@ -10,7 +10,7 @@ export default async function BasketPage() {
     .eq('user_id', 1)
 
     let sepetToplam = 0;
-    let sepetSayi = basketItems.length
+
 
     
     basketItems.map(e => {
