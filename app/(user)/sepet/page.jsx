@@ -25,7 +25,7 @@ export default async function BasketPage() {
                 {basketItems.map(e => (
                 <div key={e.id} className="flex flex-col items-center p-4 border-slate-300 border rounded-lg shadow-lg   hover:shadow-xl hover:bg-lime-200 mb-2">
                         <div className="flex-shrink-0 mb-4 md:mb-0 md:mr-4">
-                        <Image src={e.products.thumbnail} height={100} width={100} alt={e.products.title} className="rounded-lg" priority />
+                        <Image src={e.products.thumbnail} height={100} width={100} style={{ width: 'auto', height: 'auto' }} alt={e.products.title} className="rounded-lg" priority />
                         </div>
                         <div className="flex flex-col space-y-2 items-center">
                             <p className="text-lg font-semibold text-gray-700">{e.products.title} <span className="ms-2">X {e.quantity}</span></p>
