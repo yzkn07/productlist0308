@@ -42,7 +42,7 @@ export default async function ProductDetailPage({ params }) {
     return (
         <>
             <ProductCard product={product} alisVeris={alisVerisDurumu}/>
-            <div className="mt-10 flex justify-center items-center"> 
+            <div className="mt-2 mb-10 flex justify-center items-center"> 
               <Link href={"/urunler"} className=" bg-transparent p-4 w-40 text-center font-light text-xl rounded-xl border border-slate-500 active:bg-blue-300 ">{"<- "} geri</Link>
             </div>
             

@@ -5,6 +5,9 @@ const nextConfig = {
           {
             hostname: 'cdn.dummyjson.com',
           },
+          {
+            hostname: 'agaparwxrjnkmqfglytl.supabase.co',
+          }
         ],
       },
 };
