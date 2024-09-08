@@ -1,27 +1,28 @@
-import { createContext, useContext, useState, useEffect } from 'react';
-import { createClient } from '@/utils/supabase/server'; // Supabase client
+"use client"
+import { createClient } from "@/utils/supabase/client"
+import { createContext, useEffect, useState, useContext } from "react"
 
-const CartContext = createContext();
+const CartContext = createContext()
 
 // Sepet verisini sağlayan provider
 export function CartProvider({ children }) {
-    const [cartItems, setCartItems] = useState([]);
-    const supabase = createClient();
+    const [cartItems, setCartItems] = useState([])
+    const supabase = createClient()
 
-    useEffect(() => {
-        // Sepetteki ürün sayısını Supabase'den al
+    useEffect(() =>{
         const fetchCartData = async () => {
-            const { data: cartData } = await supabase.from('cart').select('*');
-            setCartItems(cartData);
-        };
-        fetchCartData();
-    }, []);
+            const { data: cartData , error } = await supabase.from('basket').select("*")
+            setCartItems(cartData || [])
+        }
+        fetchCartData()
+    },[])
 
-    return (
-        <CartContext.Provider value={{ cartItems, setCartItems }}>
-            {children}
+    
+    return(
+        <CartContext.Provider value={{ cartItems, setCartItems}}>
+            { children }
         </CartContext.Provider>
-    );
+    )
 }
 
 // Sepet verisini kullanmak için custom hook

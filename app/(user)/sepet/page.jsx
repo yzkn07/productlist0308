@@ -8,10 +8,10 @@ export default async function BasketPage() {
     .from('basket')
     .select("*, products(*)")
     .eq('user_id', 1)
-    console.log(basketItems);
+
     let sepetToplam = 0;
     let sepetSayi = basketItems.length
-    console.log(sepetSayi);
+
     
     basketItems.map(e => {
         sepetToplam += e.products.price * e.quantity

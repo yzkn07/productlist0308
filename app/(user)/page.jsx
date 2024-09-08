@@ -1,6 +1,7 @@
+
 export default async function HomePage() {
   return (
-    <>
+
       <div className="max-w-screen-lg mx-auto p-4">
         <h1 className="flex items-center justify-center bg-gradient-to-r from-sky-500 to-blue-600 text-white text-2xl font-semibold border-slate-300 border rounded-2xl shadow-md py-6 px-8 mt-6 mx-auto">
           E-commerce Projesi
@@ -32,6 +33,6 @@ export default async function HomePage() {
           </div>
         </div>
       </div>
-    </>
+
   );
 }

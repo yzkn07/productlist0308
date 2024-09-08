@@ -1,6 +1,7 @@
 import { Inter, Lexend
  } from "next/font/google";
 import "./globals.css";
+import { CartProvider } from "@/context/CartContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,7 +14,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="tr">
       <head><link rel="stylesheet" href="https://rsms.me/inter/inter.css"/></head>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <CartProvider>
+        {children}
+        </CartProvider>
+        </body>
     </html>
   );
 }
