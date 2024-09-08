@@ -1,7 +1,9 @@
-import { createClient } from "@/utils/supabase/server"
 import Image from "next/image";
+import { createClient } from "@/utils/supabase/server";
+
 export default async function BasketPage() {
-    const supabase = createClient()
+
+    const supabase = createClient();
     let { data: basketItems, error } = await supabase
     .from('basket')
     .select("*, products(*)")
