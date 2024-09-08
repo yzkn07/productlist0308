@@ -7,7 +7,7 @@ export default async  function ProductsPage({ searchParams }) {
 
 
     const supabase = createClient();
- 
+
     
 
     let { data: products } = await supabase.from('products').select(`
@@ -42,26 +42,27 @@ export default async  function ProductsPage({ searchParams }) {
         <>
             <form action={ProductFilterAction} className="mb-2 flex flex-col mx-2">
                 <input type="text" name="productName" id="" placeholder="ürün ara"
-                className="border-zinc-300 focus:border-zinc-700 border-2 py-1 px-2 rounded-md mb-2"/>
+                className="border-zinc-300 focus:border-zinc-700 border-2 py-2 px-2 rounded-md mb-2"/>
                
                 {/* <input type="text" name="productCategory" id="" placeholder="kategori ara"
                 className="border-zinc-300 focus:border-zinc-700 border-2 py-1 px-2 rounded-md mb-2"/> */}
 
                 <input type="number" name="minPrice" id="" placeholder="en düşük fiyat gir"
-                className="border-zinc-300 focus:border-zinc-700 border-2 py-1 px-2 rounded-md mb-2"/>
+                className="border-zinc-300 focus:border-zinc-700 border-2 py-2 px-2 rounded-md mb-2"/>
                 
                 <input type="number" name="maxPrice" id="" placeholder="en yüksek fiyat gir"
-                className="border-zinc-300 focus:border-zinc-700 border-2 py-1 px-2 rounded-md mb-2"/>
+                className="border-zinc-300 focus:border-zinc-700 border-2 py-2 px-2 rounded-md mb-2"/>
 
                 <select name="categoryName" id=""
-                className="border-zinc-300 focus:border-zinc-700 border-2 py-1 px-2 rounded-md mb-2">
+                className="border-zinc-300 focus:border-zinc-700 border-2 py-2 px-2 rounded-md mb-2">
                     <option value="hepsi">hepsi</option>
                     {categories.map((category,i) => (
                         <option value={category.slug} key={i}>{category.name}</option>
                     ))}
                 </select>
                
-                <button className="bg-gray-400 py-1 px-5 rounded-md text-white text-lg active:bg-gray-800">ara</button>
+                <button className="mx-auto w-40 text-center bg-blue-500 py-2 px-4 rounded-md text-white text-lg active:bg-gray-800">Ara</button>
+
             </form>
             
 
