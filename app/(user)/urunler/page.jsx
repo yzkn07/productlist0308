@@ -60,8 +60,8 @@ export default async  function ProductsPage({ searchParams }) {
                         <option value={category.slug} key={i}>{category.name}</option>
                     ))}
                 </select>
-               
-                <button className="mx-auto w-40 text-center bg-blue-500 py-2 px-4 rounded-md text-white text-lg active:bg-gray-800">Ara</button>
+                
+                <button className="mx-auto bg-transparent p-4 w-40 text-center font-light text-xl rounded-xl border border-slate-500 active:bg-blue-300 ">Ara</button>
 
             </form>
             
