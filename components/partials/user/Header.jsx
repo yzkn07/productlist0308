@@ -15,7 +15,7 @@ export default function UserHeader() {
                     <Link href="/urunler">Ürünler</Link>
                 </li>
                 <li className={`px-4 py-2 rounded-lg transition-colors duration-300 ease-in-out ${pathname === "/sepet" ? "bg-lime-200 text-gray-800 shadow-lg" : "hover:bg-gray-100"}`}>
-                    <Link href="/sepet">Sepet</Link>
+                    <Link href="/sepet">Sepet {"4"}</Link>
                 </li>
             </ul>
         </header>

@@ -8,8 +8,12 @@ export default async function BasketPage() {
     .eq('user_id', 1)
     console.log(basketItems);
     let sepetToplam = 0;
+    let sepetSayi = basketItems.length
+    console.log(sepetSayi);
+    
     basketItems.map(e => {
         sepetToplam += e.products.price * e.quantity
+        
     })
 
     return(
@@ -30,6 +34,7 @@ export default async function BasketPage() {
                 ))}
                 <p className="bg-lime-200 text-center text-xl font-bold text-gray-700 p-4 rounded-b-3xl rounded-t-md    shadow-2xl">Sepet Tutarı:  {sepetToplam} ₺</p>
             </div>
+            
         
         </>
     )
