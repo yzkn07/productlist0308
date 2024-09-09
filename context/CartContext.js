@@ -15,7 +15,7 @@ export function CartProvider({ children }) {
             setCartItems(cartData || [])
         }
         fetchCartData()
-    },[cartItems])
+    },[])
 
     
     return(
