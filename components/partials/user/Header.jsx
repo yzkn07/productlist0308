@@ -8,15 +8,15 @@ export default function UserHeader() {
     const pathname = usePathname();  // usePathname hook'u ile şu anki sayfa yolunu alıyoruz
 
     return (
-        <header className="py-4 mb-4 shadow-md bg-white rounded-xl">
+        <header className="py-4 mb-4 shadow-md bg-white/20 backdrop-blur-sm rounded-xl sticky top-0">
             <ul className="flex justify-evenly items-center text-gray-800 text-lg font-semibold">
-                <li className={`px-4 py-2 rounded-lg transition-colors duration-300 ease-in-out ${pathname === "/" ? "bg-lime-200 text-gray-800 shadow-lg" : "hover:bg-gray-100"}`}>
+                <li className={`px-4 py-2  rounded-lg transition-colors duration-300 ease-in-out ${pathname === "/" ? "bg-lime-200 text-gray-800 shadow-lg" : "hover:bg-gray-100 bg-white/20"}`}>
                     <Link href="/">Anasayfa</Link>
                 </li>
-                <li className={`px-4 py-2 rounded-lg transition-colors duration-300 ease-in-out ${pathname === "/urunler" ? "bg-lime-200 text-gray-800 shadow-lg" : "hover:bg-gray-100"}`}>
+                <li className={`px-4 py-2  rounded-lg transition-colors duration-300 ease-in-out ${pathname === "/urunler" ? "bg-lime-200 text-gray-800 shadow-lg" : "hover:bg-gray-100 bg-white/20"}`}>
                     <Link href="/urunler">Ürünler</Link>
                 </li>
-                <li className={`px-4 py-2 rounded-lg transition-colors duration-300 ease-in-out ${pathname === "/sepet" ? "bg-lime-200 text-gray-800 shadow-lg" : "hover:bg-gray-100"}`}>
+                <li className={`px-4 py-2  rounded-lg transition-colors duration-300 ease-in-out ${pathname === "/sepet" ? "bg-lime-200 text-gray-800 shadow-lg" : "hover:bg-gray-100 bg-white/20"}`}>
                     <Link href="/sepet">
                     <span className="relative">
                             sepet
