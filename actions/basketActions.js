@@ -1,19 +1,41 @@
 "use server"
-import { redirect } from "next/navigation"
 
 import { createClient } from "@/utils/supabase/server"
 
 export default async function AddToBasket(formData){
     const supabase = createClient()
 
-    const { error } = await supabase
-    .from('basket')
-    .insert({
-        product_id: parseInt(formData.get("productId")), 
-        quantity: parseInt(formData.get("quantity")) 
-        })
+    const { data: controlData, error: controlError } = await supabase
+        .from('basket')
+        .select('*')
+        .match({ user_id: 1, product_id: parseInt(formData.get("productId")) }).single()
 
-    console.log(formData);
+        if(controlData){
+                console.log(controlData.quantity);
+             
+                const { error } = await supabase
+                    .from('basket')
+                    .update({ quantity:controlData.quantity + parseInt(formData.get("quantity"))})
+                    .eq('id', controlData.id )
+
+            console.log("sepet güncellendi");
+            
+        }else {
+            const { error } = await supabase
+            .from('basket')
+            .insert({
+                product_id: parseInt(formData.get("productId")), 
+                quantity: parseInt(formData.get("quantity")) 
+            })
+            
+            console.log("ürün sepete eklendi");
+        }
+        
+        
+        
+
+
+
     
 
 }

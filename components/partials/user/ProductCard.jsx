@@ -6,9 +6,9 @@ import AddToBasket from "@/actions/basketActions"
 import { useState } from "react"
 
 
-
 export default function ProductCard({ product, alisVeris }) {
     const router = useRouter()
+
 
     const [urunSayisi, setUrunSayisi] = useState(0)
     const [showPopover, setShowPopover] = useState(false);
