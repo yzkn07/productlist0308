@@ -35,6 +35,7 @@ export default function ProductCard({ product, alisVeris }) {
         if(urunSayisi > 0){
             setShowPopover(true);
             setTimeout(() => setShowPopover(false), 2000); // 2 saniye sonra popover kapanır
+            router.refresh("/sepet")
         }
     };
 

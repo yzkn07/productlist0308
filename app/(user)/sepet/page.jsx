@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { createClient } from "@/utils/supabase/server";
 
+
+
 export default async function BasketPage() {
 
     const supabase = createClient();
@@ -8,6 +10,7 @@ export default async function BasketPage() {
     .from('basket')
     .select("*, products(*)")
     .eq('user_id', 1)
+
 
     let sepetToplam = 0;
 
