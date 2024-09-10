@@ -11,15 +11,11 @@ export default async function BasketPage() {
     .select("*, products(*)")
     .eq('user_id', 1)
 
-
-    let sepetToplam = 0;
-
-
+    const sepetToplam = basketItems.reduce((total, e) => {
+        return total + (e.products.price * e.quantity);
+    }, 0)
     
-    basketItems.map(e => {
-        sepetToplam += e.products.price * e.quantity
-        
-    })
+  
 
     return(
         <>
